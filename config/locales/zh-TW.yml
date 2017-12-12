@@ -1,0 +1,50 @@
+---
+zh-TW:
+  activerecord:
+    models:
+      admin: "管理者"
+      system: "系統設定"
+      page: 頁面設定
+      doctor: 醫療團隊
+      doctor_cert: 證照
+      category: 診療分類
+      product: 診療項目
+      carousel: 主視覺輪播
+      content: 內容管理
+      activity: 活動快報
+      video: 影音專區
+      media_report: 媒體報導
+      witness: 美麗見證
+      static_page: 靜態頁面
+    attributes:
+      admin: 
+        name: 名稱
+        email: Email
+        password: 密碼
+        password_confirmation: 確認密碼
+      system:
+        title: "網站標題"
+        keyword: "網站關鍵字"
+        description: "網站描述"
+        name: "企業名稱"
+        phone: "電話"
+        email: "信箱"
+        address: "地址"
+    errors:
+      messages:
+        blank: "請填寫%{attribute}"
+  backends:
+    submit: 送出
+    submiting: 送出中
+    add: 增加
+    adding: 增加中
+    navbar: 導覽列    
+    new: 新增        
+    back: 回上一頁
+  views:
+    pagination:
+      first: "&laquo; 最前"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 上一頁"
+      next: "下一頁 &rsaquo;"
+      truncate: "..."           

@@ -1,0 +1,9 @@
+#config/application.yml
+defaults: &defaults
+  domain: "playplus.solutions"
+development:
+  <<: *defaults
+test:
+  <<: *defaults
+production:
+  <<: *defaults

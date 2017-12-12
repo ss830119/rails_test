@@ -1,0 +1,38 @@
+<aside>
+  <div id="sidebar"  class="nav-collapse ">
+    <!-- sidebar menu start-->
+    <ul class="sidebar-menu" id="nav-accordion">
+      <li>
+        <a href="<%= backends_path %>"> <i class="fa fa-dashboard"></i> <span>首頁</span> </a>
+      </li>
+
+      <!-- 展開式 menu -->
+      <!-- <li class="sub-menu dcjq-parent-li">
+        <a href="javascript:;" class="dcjq-parent <%= active(controller_name, "") %>">
+          <i class="fa fa-tasks"></i>
+          <span>Item</span>
+          <span class="dcjq-icon"></span>
+        </a>
+        <ul class="sub">
+          <li class="<%= active(controller_name, "") %>">
+            <a href="#">
+              <i class="fa fa-star"></i> <span>items</span>
+            </a>
+          </li>
+        </ul>
+      </li>  --> 
+
+      <li>
+        <a class="<%= active(controller_name, "admin") %>" href="<%= edit_admin_path %>">
+          <i class="fa fa-star"></i> <span><%= Admin.model_name.human %></span>
+        </a>
+      </li>
+      <li >
+        <a class="<%= active(controller_name, "system") %>" href="<%= edit_backends_system_path %>" >
+          <i class="fa fa-star"></i> <span><%= System.model_name.human %></span>
+        </a>
+      </li>
+    </ul>
+    <!-- sidebar menu end-->
+  </div>
+</aside>

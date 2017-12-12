@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="fa fa-bars"></span>
+        </button>
+        <a class="navbar-brand" href="#"><%= t('backends.nav') %></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </nav>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+        系統設定
+      </header>
+      <div class="panel-body">
+        <%= form_tag(backends_system_path, multipart: true, method: :put, class: "form-horizontal") do %>
+        <div class="row">
+          <div class="col-md-2">
+            <label class="control-label">網站設定</label>
+          </div>
+          <div class="col-md-10">
+
+            <div class="form-group">
+              <label class="col-lg-3 col-sm-3 control-label"><%= System.human_attribute_name('title') %></label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" name="system[title]" value="<%= current_object.title %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 col-sm-3 control-label"><%= System.human_attribute_name('description') %></label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" name="system[description]" value="<%= current_object.description %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 col-sm-3 control-label"><%= System.human_attribute_name('keywords') %></label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" name="system[keywords]" value="<%= current_object.keywords %>">
+              </div>
+            </div>                    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <label class="control-label">基本資料</label>
+          </div>
+          <div class="col-md-10">
+            <div class="form-group">
+              <label class="col-lg-3 col-sm-3 control-label"><%= System.human_attribute_name('name') %></label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" name="system[name]" value="<%= current_object.name %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 col-sm-3 control-label"><%= System.human_attribute_name('phone') %></label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" name="system[phone]" value="<%= current_object.phone %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 col-sm-3 control-label"><%= System.human_attribute_name('email') %></label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" name="system[email]" value="<%= current_object.email %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 col-sm-3 control-label"><%= System.human_attribute_name('address') %></label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" name="system[address]" value="<%= current_object.address %>">
+              </div>
+            </div>            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <label class="control-label">社群連結</label>
+          </div>
+          <div class="col-md-10">
+            <% System.stored_attributes[:socials].each do |social| %>
+            <div class="form-group">
+              <label class="col-lg-3 col-sm-3 control-label"><%= System.human_attribute_name(social) %></label>
+              <div class="col-lg-9">
+                <input type="text" class="form-control" name="system[<%= social %>]" value="<%= current_object.send(social) %>">
+              </div>
+            </div>   
+            <% end %>         
+          </div>
+        </div>            
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="submit" data-disable-with="<%= t("backends.submiting") %>" class="btn btn-danger">
+              <%= t("backends.submit") %>
+            </button>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</div>

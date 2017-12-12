@@ -1,0 +1,32 @@
+<div class="form-group">
+  <label class="col-lg-3 col-sm-3 control-label"><%= Admin.human_attribute_name('name') %></label>
+  <div class="col-lg-9">
+    <input type="text" class="form-control" name="admin[name]" value="<%= current_object.name %>" />
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-lg-3 col-sm-3 control-label"><%= Admin.human_attribute_name('email') %></label>
+  <div class="col-lg-9">
+    <input type="text" class="form-control" name="admin[email]" value="<%= current_object.email %>" />
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-lg-3 col-sm-3 control-label"><%= Admin.human_attribute_name('password') %></label>
+  <div class="col-lg-9">
+    <input type="password" class="form-control" name="admin[password]" />
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-lg-3 col-sm-3 control-label"><%= Admin.human_attribute_name('password_confirmation') %></label>
+  <div class="col-lg-9">
+    <input type="password" class="form-control" name="admin[password_confirmation]" />
+  </div>
+</div>
+<div class="form-group">
+<label class="col-lg-3 col-sm-3 control-label"></label>
+  <div class="col-lg-9">
+    <button class="btn btn-danger">
+      <%= t 'backends.submit' %>
+    </button>
+  </div>
+</div>

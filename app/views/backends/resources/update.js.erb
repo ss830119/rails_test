@@ -1,0 +1,6 @@
+$(document).ready(function(){
+  $("#<%= model_class_name %><%= current_object.id %>").replaceWith('<%= escape_javascript(render(partial: "/backends/#{controller_name}/show",locals:{current_object: current_object})) %>');
+  <% if @message %>
+  toastr.success("<%= @message %>")
+  <% end %>
+});

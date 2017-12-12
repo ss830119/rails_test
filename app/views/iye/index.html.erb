@@ -1,0 +1,42 @@
+<form action="<%= iye_index_path %>" method="get" class="form-inline" > 
+  <div class="row">
+    <div class="col-lg-12">
+      <section class="panel">
+        <div class="panel-body">
+          <div class="form-group">
+            <label class="sr-only" for="filters-key">key</label>
+            <input type="text" class="form-control" name="filters[key]" placeholder="key">
+          </div>          
+          <div class="form-group">
+            <label class="sr-only" for="filters-text">text</label>
+            <input type="text" class="form-control" name="filters[text]" placeholder="text">
+          </div>
+          <button type="submit" class="btn btn-success">Filters</button>
+          <a href="<%= iye_index_path %>" class="btn btn-danger">Clear</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</form>  
+<form action="<%= iye_index_path %>" method="post" class="form-horizontal" >
+  <button type="submit" class="btn btn-danger pull-right m-bot15">Save</button>
+  <%= token_tag nil %>
+  <% @translations.each do |key,value| %>
+  <div class="row">
+    <div class="col-lg-12">
+      <section class="panel">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <label class="control-label"><%= key %></label>
+            </div>
+            <div class="col-lg-8">
+            <%= render partial: "/iye/translation",locals: {translations: value.translations} %>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <% end %>
+</form>  

@@ -1,0 +1,35 @@
+ /*
+ *= require backend_template/css/bootstrap.min.css
+ *= require backend_template/css/bootstrap-reset.css
+ *= require bootstrap
+ *= require font-awesome
+*= require jquery-ui
+
+ *= require backend_template/assets/toastr-master/toastr.css
+ *= require backend_template/assets/bootstrap-colorpicker/css/colorpicker.css
+ *= require backend_template/assets/bootstrap-datetimepicker/css/datetimepicker.css
+ *= require backend_template/assets/fancybox/source/jquery.fancybox.css
+
+ *= require select2
+ *= require select2-bootstrap
+
+ *= require jquery-ui-daterangepicker/jquery-ui.min.css
+ *= require jquery-ui-daterangepicker/jquery.comiseo.daterangepicker.css
+
+ *= require backend_template/css/slidebars.css
+ *= require backend_template/css/style.css 
+ *= require backend_template/css/style-responsive.css
+
+ * require_self
+ */
+
+
+.margin-none.form-group{
+  margin-left: 0;
+  margin-right: 0
+}
+
+td img{
+  max-height: 40px;
+  margin: 0 auto
+}

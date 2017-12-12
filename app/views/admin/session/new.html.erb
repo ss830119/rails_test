@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%= display_meta_tags %>
+    <%= stylesheet_link_tag 'backends' %>
+    <%= javascript_include_tag 'backends' %>
+    <%= csrf_meta_tags %>
+
+    <link rel="stylesheet" href="/plugins/dropify/css/dropify.min.css">
+    <script src="/plugins/dropify/js/dropify.min.js"></script>
+    <script>
+
+    </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/plugins/html5shiv.js"></script>
+    <script src="/plugins/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="login-body">
+
+    <div class="container">
+
+      <form class="form-signin" action="<%= admin_session_path %>" method="post">
+        <%= token_tag nil %>
+        <h2 class="form-signin-heading">登入</h2>
+        <div class="login-wrap">
+          <input type="email" name="email" class="form-control" placeholder="<%= Admin.human_attribute_name('email') %>" >
+          <input type="password" name="password" class="form-control" placeholder="<%= Admin.human_attribute_name('password') %>" >
+          <button class="btn btn-lg btn-login btn-block" type="submit" data-disable_with="loading..." >
+            登入
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>
