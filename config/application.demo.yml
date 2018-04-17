@@ -1,6 +1,7 @@
 #config/application.yml
 defaults: &defaults
   domain: "playplus.solutions"
+  TZ: "Taipei"
 development:
   <<: *defaults
 test:
