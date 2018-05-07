@@ -5,9 +5,13 @@ class Backends::ImagesController < BackendsController
   def ck_upload
     @image = Image.create(file: params[:upload])
 
-    # render :text=>u.obj_tmp.url
-    render  :text=> "<script>window.parent.CKEDITOR.tools.callFunction(#{params[:CKEditorFuncNum]},\"#{@image.file.url}\")</script>"
-    return
-  end  
-  
-end
+    respond_to do |format|
+      format.js {
+
+      }
+      format.html {
+        render layout: false, plain: %Q(<html><body><script type="text/javascript">window.parent.CKEDITOR.tools.callFunction('#{params[:CKEditorFuncNum]}', "#{@image.file.url}\");</script></body></html>)
+      }
+    end  
+
+  end

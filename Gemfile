@@ -63,6 +63,9 @@ gem 'carrierwave-processing'
 # 狀態管理 https://github.com/aasm/aasm
 gem 'aasm'
 
+# 日期搜尋
+gem 'by_star', git: "git://github.com/radar/by_star"
+
 # 分頁 - rails generate kaminari:views bootstrap3
 gem 'kaminari'
 

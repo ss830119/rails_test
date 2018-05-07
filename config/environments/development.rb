@@ -1,4 +1,8 @@
 Rails.application.configure do
+
+  # url 網域與http/https
+  config.action_controller.default_url_options = {host: ENV['domain'], protocol: ENV['protocol']}
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

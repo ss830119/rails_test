@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: "home#index"
+
   # omniauth 認證
   # get'/auth/facebook/callback' , to: "user/omniauth_callbacks#callback"
   # get'/auth/google_oauth2/callback' , to: "user/omniauth_callbacks#callback"

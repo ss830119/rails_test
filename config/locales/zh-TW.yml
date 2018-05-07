@@ -1,21 +1,19 @@
 ---
 zh-TW:
+  attributes:  
+    created_at: 建立時間
+    updated_at: 更新時間
+    status: 狀態
+    displayed: 顯示
+    hidden: 隱藏
+    show: 顯示
+    hide: 隱藏 
+    waiting: 等待
+    permitted: 通過
   activerecord:
     models:
       admin: "管理者"
       system: "系統設定"
-      page: 頁面設定
-      doctor: 醫療團隊
-      doctor_cert: 證照
-      category: 診療分類
-      product: 診療項目
-      carousel: 主視覺輪播
-      content: 內容管理
-      activity: 活動快報
-      video: 影音專區
-      media_report: 媒體報導
-      witness: 美麗見證
-      static_page: 靜態頁面
     attributes:
       admin: 
         name: 名稱
