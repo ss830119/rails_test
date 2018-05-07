@@ -15,7 +15,10 @@ class Admin::SessionController < ApplicationController
       session[:admin] = @admin.id
       flash[:success] = "登入成功."
 
-      redirect_to backends_path
+      @url = session[:origin_url] || backends_path.referer
+      session[:origin_url] = nil
+
+      redirect_to @url
     else
       flash[:error] = "登入失敗."
 

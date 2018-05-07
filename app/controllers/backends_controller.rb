@@ -10,8 +10,12 @@ class BackendsController < ApplicationController
 
   def login?
     unless current_admin
-      reset_session
-      redirect_to new_admin_session_path
+      respond_to do |format|
+        format.html {
+          session[:origin_url] = request.original_url 
+          redirect_to new_admin_session_path
+        }
+      end 
     end
   end
 
