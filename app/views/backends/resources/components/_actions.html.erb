@@ -1,11 +1,16 @@
-<% link_to(url_for(action: "show", id: current_object.id),class: "btn btn-xs btn-success") do %>
+<% show = true if local_assigns[:show].nil? %>
+<% edit = true if local_assigns[:edit].nil? %>
+<% destroy = true if local_assigns[:destroy].nil? %>
+<% controller = "backends/#{current_object.class.name.tableize}" if local_assigns[:controller].nil? %>
+
+<%= link_to(url_for(controller: controller, action: "show", id: current_object.id),class: "btn btn-xs btn-success") do %>
 <i class="fa fa-search"></i> 查看 
-<% end %>   
+<% end if show %>   
 
-<%= link_to(url_for(action: "edit", id: current_object.id),class: "btn btn-xs btn-warning") do %>
+<%= link_to(url_for(controller: controller, action: "edit", id: current_object.id),class: "btn btn-xs btn-warning") do %>
 <i class="fa fa-pencil"></i> 編輯 
-<% end %>       
+<% end if edit %>       
 
-<%= link_to(url_for(action: "destroy", id: current_object.id, format: :js),class: "btn btn-xs btn-danger", remote: true, method: :delete, data: {confirm: "確認刪除嗎?"}) do %>
+<%= link_to(url_for(controller: controller, action: "destroy", id: current_object.id, format: :js),class: "btn btn-xs btn-danger", remote: true, method: :delete, data: {confirm: "確認刪除嗎?"}) do %>
 <i class="fa fa-trash-o"></i> 刪除 
-<% end %>
+<% end if destroy %>

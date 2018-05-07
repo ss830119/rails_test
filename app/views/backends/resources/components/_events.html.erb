@@ -1,13 +1,22 @@
+
+<% aasm_column = :status if local_assigns[:aasm_column].nil? %>
+<% remote = true if local_assigns[:remote].nil? %>
+<% format = :js if local_assigns[:format].nil? %>
+<% controller = "backends/#{current_object.class.name.tableize}" if local_assigns[:controller].nil? %>
+
 <div class="btn-group dropup">
-  <button class="btn btn-white btn-xs" type="button"><%= model_class.human_attribute_name(current_object.status) %></button>
+  <button class="btn btn-white btn-xs" type="button"><%= current_object.class.human_attribute_name(current_object.send(aasm_column)) %></button>
+
+  <% if current_object.aasm(aasm_column).events(:permitted => true).map(&:name).present? %>
   <button data-toggle="dropdown" class="btn btn-white btn-xs dropdown-toggle" type="button" aria-expanded="false"><span class="caret"></span></button>
   <ul role="menu" class="dropdown-menu">
-    <% current_object.aasm.events(:permitted => true).map(&:name).each do |event| %>    
+    <% current_object.aasm(aasm_column).events(:permitted => true).map(&:name).each do |event| %>    
     <li>
-      <%= link_to(url_for(action: "event", id: current_object.id, event: event , format: :js),remote: true, method: :post) do %>
-      <%= model_class.human_attribute_name(event) %>
+      <%= link_to(url_for(controller: controller,action: "event", id: current_object.id, event: event , format: format),remote: remote, method: :post) do %>
+      <%= current_object.class.human_attribute_name(event) %>
       <% end %>              
     </li>
     <% end %>
   </ul>
+  <% end %>
 </div>     

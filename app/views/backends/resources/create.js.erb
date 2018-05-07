@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#<%= model_class_name.tableize %>").append('<%= escape_javascript(render(partial: "/backends/#{controller_name}/show",locals:{current_object: current_object})) %>');
+  $("#<%= current_object.class.name.tableize %>").append('<%= escape_javascript(render(partial: "show",locals:{current_object: current_object})) %>');
   <% if @message %>
   toastr.success("<%= @message %>")
   <% end %>

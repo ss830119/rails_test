@@ -17,8 +17,34 @@ class ApplicationRecord < ActiveRecord::Base
     self.class.to_s.singularize.underscore 
   end
 
-  def self.search
+  def self.search params = {}
+    params = params.symbolize_keys
+    @self = self
+    
+    if params[:daterange].present?
+      @start_at = params[:daterange].split("-")[0].to_date.beginning_of_day
+      @end_at = params[:daterange].split("-")[1].to_date.end_of_day
+      @self = @self.between_times(@start_at, @end_at)
+    end
 
+    return @self
   end
+
+  def self.xlsx_columns
+    self.column_names - ["created_at", "updated_at", "deleted_at"]
+  end
+
+  def self.xlsx_row
+    @xlsx_columns = xlsx_columns.map{|i| self.human_attribute_name(i)}
+ 
+    return @xlsx_columns
+  end
+
+  def xlsx_row
+    @xlsx_columns = self.class.xlsx_columns.map{|i| i.gsub("_id", "\&\.name")}.map{|i| instance_eval(i)}
+
+    return @xlsx_columns
+  end
+
 
 end

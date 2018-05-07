@@ -1,0 +1,16 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-advance table-hover text-center">
+    <thead>
+      <tr>
+        <th class="text-center col-md-1"></th>
+        <% current_collection.class.to_s.deconstantize.constantize.xlsx_row.each do |current| %>
+        <th class="text-center col-md-1"><%= current %></th>
+        <% end %>
+        <th class="text-center col-md-2"></th>
+      </tr>
+    </thead>
+    <tbody>
+     <%= render partial: "show", collection: current_collection, as: :current_object %>
+   </tbody>
+ </table>
+</div>

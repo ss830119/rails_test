@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: model_class.model_name.human) do |sheet|
+  sheet.add_row model_class.xlsx_row
+  @current_collection.each do |current_object|
+    sheet.add_row current_object.xlsx_row
+  end
+end

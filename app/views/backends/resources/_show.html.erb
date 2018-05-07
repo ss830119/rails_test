@@ -1,0 +1,16 @@
+<tr id="<%= current_object.class.name %><%= current_object.id %>" data-item="<%= current_object.id %>">
+  <td>
+    <%= render partial: "/backends/resources/components/handle" %>
+  </td>
+  <td>
+    <%= render partial: "/backends/resources/components/events", locals: {current_object: current_object} %>
+  </td>
+  <% current_object.xlsx_row.each do |current| %>
+  <td>
+    <%= current %>
+  </td>
+  <% end %>
+  <td>
+    <%= render partial: "/backends/resources/components/actions", locals: {current_object: current_object, show: false} %>
+  </td>
+</tr>
