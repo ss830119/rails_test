@@ -1,6 +1,6 @@
 <%= form_for([:backends, current_object],html: {multipart: true, class: "form-horizontal"}) do |f| %>
 
-<% current_object.xlsx_row.each do |current| %>
+<% current_object.class.xlsx_columns.each do |current| %>
 <div class="form-group">
   <label class="col-lg-3 col-sm-3 control-label"><%= current_object.class.human_attribute_name(current) %></label>
   <div class="col-lg-9">
