@@ -1,0 +1,19 @@
+<%= form_for([:backends, current_object],html: {multipart: true, class: "form-horizontal"}) do |f| %>
+
+<% current_object.xlsx_row.each do |current| %>
+<div class="form-group">
+  <label class="col-lg-3 col-sm-3 control-label"><%= current_object.class.human_attribute_name(current) %></label>
+  <div class="col-lg-9">
+    <input type="text" class="form-control" name="<%= current_object.params_key %>[<%= current %>]" value="<%= current_object.send(current) %>" >
+  </div>
+</div>
+<% end %>
+
+<div class="form-group">
+  <div class="col-lg-9 col-lg-offset-3">
+    <button type="submit" data-disable-with="<%= t("backends.submiting") %>" class="btn btn-danger">
+      <%= t("backends.submit") %>
+    </button>
+  </div>
+</div>
+<% end %>

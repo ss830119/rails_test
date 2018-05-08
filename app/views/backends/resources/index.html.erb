@@ -14,6 +14,11 @@
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav pull-right">
           <li>
+            <%= link_to(url_for(action: :new)) do %>
+            <%= t("backends.new") %>
+            <% end %>
+          </li>   
+          <li>
             <a href="#search" data-toggle="collapse">
               <i class="fa fa-filter"></i> 搜尋
             </a> 
