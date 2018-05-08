@@ -1,9 +1,9 @@
- /*
- *= require backend_template/css/bootstrap.min.css
- *= require backend_template/css/bootstrap-reset.css
+/*
  *= require bootstrap
+ * require backend_template/css/bootstrap.min.css
+ *= require backend_template/css/bootstrap-reset.css
  *= require font-awesome
-*= require jquery-ui
+ *= require jquery-ui
 
  *= require backend_template/assets/toastr-master/toastr.css
  *= require backend_template/assets/bootstrap-colorpicker/css/colorpicker.css
