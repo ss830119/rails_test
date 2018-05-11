@@ -1,3 +1,4 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+//=require home/js/jquery.min.js
+//=require home/js/plugins.js
+//=require home/js/modernizr.js
+//=require home/js/scripts.js
